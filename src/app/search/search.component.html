@@ -1,0 +1,60 @@
+<mat-card>
+    <mat-card-content>
+      <div class="header">
+        <h4> String Search in Github </h4>
+      </div>
+      <form (ngSubmit)="onLogin()" name="searchForm" [formGroup]="searchForm">
+        <div class="emailInput">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Github Organization Name</mat-label>
+            <input
+              formControlName="gitorgname"
+              matInput
+              placeholder="Github Organization Name " required
+            />
+            <mat-error *ngIf="!searchForm.controls['gitorgname'].valid">
+                Github Organization Name is required
+              </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="emailInput">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Repository Name</mat-label>
+                <input formControlName="repo" matInput >
+            </mat-form-field>
+        </div>
+        <div class="emailInput">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Search String</mat-label>
+            <input
+              formControlName="searchstring"
+              matInput
+              placeholder="Enter Search String" required
+            />
+            <mat-error *ngIf="!searchForm.controls['searchstring'].valid">
+                Search String is required
+              </mat-error>
+          </mat-form-field>
+        </div>      
+        <div class="emailInput">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>File Extension</mat-label>
+                <input formControlName="fextension" matInput placeholder="File Extension" >
+            </mat-form-field>
+        </div>
+        <div class="emailInput">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>File Name</mat-label>
+                <input formControlName="fname" matInput  placeholder="File Name">
+            </mat-form-field>
+        </div>
+
+        
+        <button mat-flat-button color="primary">Search and download excel</button>
+      </form>
+
+      <!-- <div class="button-row">
+        <p>Create New Account</p>
+      </div> -->
+    </mat-card-content>
+  </mat-card>
