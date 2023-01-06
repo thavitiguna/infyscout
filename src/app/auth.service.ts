@@ -6,8 +6,8 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from
 })
 export class AuthService implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean{
-    let loggedIn=true
-    if(loggedIn)
+
+    if(sessionStorage.getItem('sessiondata')=="success")
     {
       return true;
     }

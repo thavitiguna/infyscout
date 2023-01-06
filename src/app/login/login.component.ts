@@ -10,6 +10,7 @@ import { Route, Router } from '@angular/router';
 export class LoginComponent implements OnInit{
   loginForm!: FormGroup;
   hide: boolean = false;
+  data:string="success"
   constructor(private fb: FormBuilder, private router: Router){}
   ngOnInit(){
     this.loginForm=new FormGroup(
@@ -27,7 +28,7 @@ export class LoginComponent implements OnInit{
     {
       //console.log(this.loginForm.value)
       console.log("login success");
-      
+      sessionStorage.setItem('sessiondata',this.data);
       this.router.navigate(['/search'])
     }
     else{
