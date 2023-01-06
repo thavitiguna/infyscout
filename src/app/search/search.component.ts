@@ -100,12 +100,13 @@ export class SearchComponent implements OnInit{
      // window.location.reload();
     },
     () => {
-      window.location.reload();
+      //this.searchForm.reset()
+     // alert("File downloaded successfully")
+     // window.location.reload();
       // 'onCompleted' callback.
       // No errors, route to new page here
     }
     )
-    
     
   }
 

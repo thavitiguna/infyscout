@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import * as fs from 'file-saver';
-
+//import * as fs from 'file-saver';
+import { FileSaverService } from 'ngx-filesaver';
 import { DatePipe } from '@angular/common';
 import { Workbook } from 'exceljs';
 import { Observable } from 'rxjs';
@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class MasterService  {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private filesaver:FileSaverService) { }
   
 
   //apiurl="https://api.github.com/search/code?q=Guna+org:infosys001"
@@ -109,7 +109,9 @@ for (let x1 of userlist)
 // Generate Excel File with given name
     workbook.xlsx.writeBuffer().then((data: any) => {
   const blob = new Blob([data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
-  fs.saveAs(blob, 'Matched strings.xlsx');
+  this.filesaver.save(blob,"demofile")
+  window.location.reload();
+ // fs.saveAs(blob, 'Matched strings.xlsx');
 });
 
   }
